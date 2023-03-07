@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: development
+    entrypoint:
+      - /bin/bash
+    image: python:3.11.2
+    init: true
+    tty: true
+    volumes:
+    - type: bind
+      source: /var/run/docker.sock
+      target: /var/run/docker.sock
